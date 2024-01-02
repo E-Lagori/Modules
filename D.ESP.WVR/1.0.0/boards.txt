@@ -28,7 +28,6 @@ menu.LORAWAN_PREAMBLE_LENGTH=LoRaWan Preamble Length
 
 ###################################################################
 
-
 eli_mcm_d_esp32.name=E-Lagori ESP32
 
 eli_mcm_d_esp32.bootloader.tool=esptool_py

@@ -1,0 +1,102 @@
+name= VEGA Processor: ARIES Boards
+version=2.0.0
+
+# Compile variables
+# ----------------------
+
+compiler.path={runtime.tools.riscv64-vega-elf-gcc.path}/bin/
+compiler.c.cmd=riscv64-vega-elf-gcc
+compiler.cpp.cmd=riscv64-vega-elf-g++
+compiler.ld.cmd=riscv64-vega-elf-ld
+compiler.ar.cmd=riscv64-vega-elf-ar
+compiler.objcopy.cmd=riscv64-vega-elf-objcopy
+compiler.elf2hex.cmd=riscv64-vega-elf-objcopy
+compiler.size.cmd=riscv64-vega-elf-size
+
+
+compiler.sdk.path={runtime.platform.path}/thejas32
+compiler.preproc.flags=-I "{build.system.path}/include" -I "{compiler.sdk.path}/include"
+
+compiler.c.flags=-c -O2 -march={build.mcu} -mabi=ilp32 -fpeel-loops -ffreestanding -ffunction-sections -fdata-sections -Wall {compiler.preproc.flags} -include sys/cdefs.h -g
+
+compiler.cpp.flags=-c -O2 -march={build.mcu} -mabi=ilp32 -fpeel-loops -ffreestanding -ffunction-sections -fdata-sections -fpermissive -Wall -fno-rtti -fno-exceptions  {compiler.preproc.flags} -include sys/cdefs.h -g
+
+compiler.ld.flags=-march={build.mcu} -mabi=ilp32 -T "{build.ldscript}" -nostartfiles -Wl,-N -Wl,--gc-sections -Wl,--wrap=malloc -Wl,--wrap=free -Wl,--wrap=sbrk 
+
+compiler.S.flags=-c -march={build.mcu} -mabi=ilp32 {compiler.preproc.flags} -g
+
+compiler.ar.flags=rcs
+
+compiler.objcopy.eep.flags=-O srec
+
+compiler.elf2hex.flags=-R .rel.dyn
+
+compiler.define=-DARDUINO=
+
+compiler.c.extra_flags=-DF_CPU={build.f_cpu}L -D{build.board}
+compiler.c.elf.extra_flags=
+compiler.cpp.extra_flags=-DF_CPU={build.f_cpu}L -D{build.board}
+compiler.S.extra_flags=-DF_CPU={build.f_cpu}L -D{build.board}
+compiler.ar.extra_flags=
+compiler.elf2hex.extra_flags=
+
+# Can be overridden in boards.txt
+build.extra_flags=
+
+# USB Flags
+# ---------
+build.usb_flags=
+build.openocdcfg=
+
+# Compile patterns
+# ---------------------
+
+## Compile S files
+recipe.S.o.pattern="{compiler.path}{compiler.c.cmd}" {compiler.S.flags} -DARDUINO={runtime.ide.version} {compiler.S.extra_flags} {build.extra_flags} {includes} "{source_file}" -o "{object_file}"
+
+## Compile c files
+recipe.c.o.pattern="{compiler.path}{compiler.c.cmd}" {compiler.c.flags} -DARDUINO={runtime.ide.version} {compiler.c.extra_flags} {build.extra_flags} {includes} "{source_file}" -o "{object_file}"
+
+## Compile c++ files
+recipe.cpp.o.pattern="{compiler.path}{compiler.cpp.cmd}" {compiler.cpp.flags} -DARDUINO={runtime.ide.version} {compiler.cpp.extra_flags} {build.extra_flags} {includes} "{source_file}" -o "{object_file}"
+
+## Create archives
+recipe.ar.pattern="{compiler.path}{compiler.ar.cmd}" {compiler.ar.flags} {compiler.ar.extra_flags} "{archive_file_path}" "{object_file}"
+
+## Link gc-sections, archives, and objects
+recipe.c.combine.pattern="{compiler.path}{compiler.cpp.cmd}" {compiler.ld.flags} {build.extra_flags} {object_files} -nostdlib -Wl,--start-group "{archive_file_path}" -lm -lstdc++ -lc -lgloss -Wl,--end-group -lgcc -o "{build.path}/{build.project_name}.elf"
+
+## Create binary
+recipe.objcopy.eep.pattern="{compiler.path}{compiler.elf2hex.cmd}" {compiler.elf2hex.flags} -O binary "{build.path}/{build.project_name}.elf" "{build.path}/{build.project_name}.bin"
+
+## Create hex
+recipe.objcopy.hex.pattern="{compiler.path}{compiler.elf2hex.cmd}" {compiler.elf2hex.flags} -O srec "{build.path}/{build.project_name}.elf" "{build.path}/{build.project_name}.hex"
+
+## Compute size
+recipe.size.pattern="{compiler.path}{compiler.size.cmd}" -B "{build.path}/{build.project_name}.elf"
+recipe.size.regex=\s*[0-9]+\s+[0-9]+\s+[0-9]+\s+([0-9]+).*
+
+# Bootloader 
+# ------------------
+tools.arduflasher.path={runtime.platform.path}/bootloaders/
+tools.arduflasher.xmodempath={runtime.tools.vegaxmodem.path}/
+tools.arduflasher.cmd=xmodem_transfer
+tools.arduflasher.cmd1=arduflasher/flasher_min.bin
+tools.arduflasher.erase.params.quiet=
+tools.arduflasher.erase.params.verbose=
+tools.arduflasher.erase.pattern="{xmodempath}{cmd}" {serial.port} "{path}{cmd1}"
+
+tools.arduflasher.bootloader.params.verbose=
+tools.arduflasher.bootloader.params.quiet=
+tools.arduflasher.bootloader.pattern="{xmodempath}{cmd}" {serial.port} "{path}{bootloader.file}"
+
+# Uploader tools
+# -------------------
+tools.vegaxmodem.path={runtime.tools.vegaxmodem.path}/
+tools.vegaxmodem.cmd=xmodem.bat
+tools.vegaxmodem.program.pattern="{path}{cmd}" {serial.port} "{build.path}/{build.project_name}.bin"
+
+tools.vegaflasher.path={runtime.tools.vegaflasher.path}/
+tools.vegaflasher.cmd=flasher.bat
+tools.vegaflasher.program.pattern="{path}{cmd}" {serial.port} "{build.path}/{build.project_name}.bin"
+
