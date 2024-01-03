@@ -7,7 +7,7 @@
    "email": "contact@e-lagori.com",
    "platforms": [
     {
-     "name": "E-Lagori ESP32 Boards",
+     "name": "E-Lagori Boards",
      "architecture": "esp32",
      "version": "1.0.0",
      "category": "ESP32",
@@ -54,7 +54,7 @@
      ]
     },
     {
-     "name": "E-Lagori RISCV Boards",
+     "name": "E-Lagori Boards",
      "architecture": "riscv",
      "version": "1.0.0",
      "category": "riscv",
