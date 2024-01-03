@@ -1,5 +1,6 @@
 // #ifdef D_ESP_WVR_H
 // #define D_ESP_WVR_H
+#include <stdint.h>
 
 #ifndef BOARDCONF
 struct boardconf
@@ -23,8 +24,8 @@ class D_ESP_WVR
     struct
     {
         uint8_t timer = 6;
-        uint freq = 5000;
-        uint res = 12;
+        int freq = 5000;
+        int res = 12;
         int maxval = 4096;
     } dac;
 
