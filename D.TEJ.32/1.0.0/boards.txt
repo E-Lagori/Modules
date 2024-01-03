@@ -20,11 +20,11 @@ d_tej_32s.menu.toolsloc.manual=Manual
 #Point to the file for ./variants/<variant>/pins_arduino.h
 d_tej_32.build.variant=D.TEJ.32
 
-d_tej_32.menu.clksrc.aries100=100MHz
-d_tej_32.menu.clksrc.aries100.build.f_cpu=100000000L
+d_tej_32.menu.clksrc.d_tej_32_100=100MHz
+d_tej_32.menu.clksrc.d_tej_32_100.build.f_cpu=100000000L
 
-d_tej_32.menu.clksrc.aries75=75MHz
-d_tej_32.menu.clksrc.aries75.build.f_cpu=75000000L
+d_tej_32.menu.clksrc.d_tej_32_75=75MHz
+d_tej_32.menu.clksrc.d_tej_32_75.build.f_cpu=75000000L
 
 d_tej_32.build.mcu=rv32im
 d_tej_32.build.vid.0=0x0403
@@ -38,9 +38,9 @@ d_tej_32.bootloader.file=arduflasher/flasher_arduino.bin
 #"The 'core' file directory for this board, in ./cores
 d_tej_32.build.core=arduino
 # This sets a define for use in the compiled code.
-d_tej_32.build.board=VEGA_aries
-d_tej_32.build.boardenv=aries
-d_tej_32.build.usb_product="ARIES"
+d_tej_32.build.board=elagori
+d_tej_32.build.boardenv=elagori
+d_tej_32.build.usb_product="ELagori"
 d_tej_32.build.sdata.size=4096
 
 #This selects the tool from "programmers.txt"

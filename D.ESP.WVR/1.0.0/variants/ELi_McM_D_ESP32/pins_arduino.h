@@ -90,13 +90,6 @@ static const uint8_t R_LED = 0;
 static const uint8_t G_LED = 5;
 static const uint8_t B_LED = 18;
 
-#ifndef BOARDCONF  
-	struct boardconf{
-	  uint8_t reserved;
-	  uint8_t brdtype;
-	  uint8_t brdno;
-	};
-	#define BOARDCONF
-#endif
+
 
 #endif /* Pins_Arduino_h */
