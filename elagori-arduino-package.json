@@ -13,8 +13,8 @@
      "category": "ESP32",
      "url": "https://github.com/E-Lagori/Modules/releases/download/v1.0.0/E-Lagori-D_ESP_WVR_1_0_0.zip",
      "archiveFileName": "E-Lagori-D_ESP_WVR_1_0_0.zip",
-     "checksum": "SHA-256:38768909ea43c1ce43f60af4c18966618023dfd6eaf0bb7b4ac4fc38cfa5242e",
-     "size": "249482627",
+     "checksum": "SHA-256:688a2c28e6c52c0ad72ebcecb36199e2c9acf00802cb1a3d82660dd21d111a29",
+     "size": "249482656",
      "boards": [
       {
        "name": "D.ESP.WVR"
@@ -55,13 +55,13 @@
     },
     {
      "name": "E-Lagori Boards",
-     "architecture": "vega",
+     "architecture": "riscv",
      "version": "1.0.0",
      "category": "riscv",
      "url": "https://github.com/E-Lagori/Modules/releases/download/v1.0.0/E-Lagori-D_TEJ_32_1_0_0.zip",
      "archiveFileName": "E-Lagori-D_TEJ_32_1_0_0.zip",
-     "checksum": "SHA-256:7e161b452919af56213581f634918a45dea189b3532d591edf48cf747893b926",
-     "size": "789549",
+     "checksum": "SHA-256:0632b19906fb0f723e1d53b9399149d02c0124023e3c29ff8fa9c31ab8854732",
+     "size": "789311",
      "boards": [
       {
        "name": "D.TEJ.32"
