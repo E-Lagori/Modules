@@ -56,9 +56,9 @@
     },
     {
      "name": "E-Lagori Boards",
-     "architecture": "riscv",
+     "architecture": "vega",
      "version": "1.0.0",
-     "category": "C-DAC",
+     "category": "riscv",
      "url": "https://github.com/E-Lagori/Modules/releases/download/v1.0.0/E-Lagori-D_TEJ_32_1_0_0.zip",
      "archiveFileName": "E-Lagori-D_TEJ_32_1_0_0.zip",
      "checksum": "SHA-256:e380d4400ac87dbf27e7c49a3d14f8aaa3454fdafe6294c58d6c599e896a825f",
