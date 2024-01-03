@@ -2,6 +2,7 @@
 #include "freertos/task.h"
 #include "esp_task_wdt.h"
 #include "Arduino.h"
+#include "D_ESP_WVR.h"
 #if (ARDUINO_USB_CDC_ON_BOOT|ARDUINO_USB_MSC_ON_BOOT|ARDUINO_USB_DFU_ON_BOOT) && !ARDUINO_USB_MODE
 #include "USB.h"
 #if ARDUINO_USB_MSC_ON_BOOT

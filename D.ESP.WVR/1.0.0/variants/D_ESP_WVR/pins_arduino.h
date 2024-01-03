@@ -3,9 +3,9 @@
 
 #include <stdint.h>
 
-static const uint8_t TIMEOUT = 1000;
-static const uint8_t ADC_MODE = 0;
-static const uint8_t DAC_MODE = 1;
+// #define TIMEOUT 1000
+// #define ADC_MODE  0
+// #define DAC_MODE  1
 
 static const uint8_t C_A = 36;
 static const uint8_t C_B = 39;
@@ -85,7 +85,7 @@ static const uint8_t SDA = 14;
 static const uint8_t AMOSI = 19;
 static const uint8_t AMISO = 21;
 
-static const uint8_t ANALOG_IO = 32;
+// static const uint8_t ANALOG_IO = 32;
 static const uint8_t R_LED = 0;
 static const uint8_t G_LED = 5;
 static const uint8_t B_LED = 18;
