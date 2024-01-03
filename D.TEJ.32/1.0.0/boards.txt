@@ -38,8 +38,8 @@ d_tej_32.bootloader.file=arduflasher/flasher_arduino.bin
 #"The 'core' file directory for this board, in ./cores
 d_tej_32.build.core=arduino
 # This sets a define for use in the compiled code.
-d_tej_32.build.board=elagori
-d_tej_32.build.boardenv=elagori
+d_tej_32.build.board=D.TEJ.32
+d_tej_32.build.boardenv=D.TEJ.32
 d_tej_32.build.usb_product="ELagori"
 d_tej_32.build.sdata.size=4096
 
