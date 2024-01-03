@@ -31,7 +31,7 @@
        "name": "xtensa-esp-elf-gdb",
        "version": "11.2_20220823"
       },
-    
+
       {
        "packager": "esp32",
        "name": "esptool_py",
@@ -58,7 +58,7 @@
      "name": "E-Lagori Boards",
      "architecture": "riscv",
      "version": "1.0.0",
-     "category": "riscv",
+     "category": "C-DAC",
      "url": "https://github.com/E-Lagori/Modules/releases/download/v1.0.0/E-Lagori-D_TEJ_32_1_0_0.zip",
      "archiveFileName": "E-Lagori-D_TEJ_32_1_0_0.zip",
      "checksum": "SHA-256:9f978b56f56db7bcac37eef602cd8769315a1b7a644060fb102893cbd2eacbdb",
