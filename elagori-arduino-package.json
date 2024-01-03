@@ -31,7 +31,6 @@
        "name": "xtensa-esp-elf-gdb",
        "version": "11.2_20220823"
       },
-
       {
        "packager": "esp32",
        "name": "esptool_py",
