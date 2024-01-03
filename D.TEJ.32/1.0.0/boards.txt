@@ -6,31 +6,27 @@ menu.FlashMode=Flash Mode
 ################################################################################################
 
 d_tej_32.name=D.TEJ.32
-d_tej_32.hide=true
+
 d_tej_32.vid.0=0x0403
 d_tej_32.pid.0=0x6015
-d_tej_32.vid.1=0x10C4
-d_tej_32.pid.1=0xEA60
 
-d_tej_32s.menu.toolsloc.default=Default
-d_tej_32s.menu.toolsloc.manual=Manual
+#d_tej_32.menu.toolsloc.default=Default
+#d_tej_32.menu.toolsloc.manual=Manual
 #d_tej_32.menu.toolsloc.default.compiler.path={runtime.tools.riscv64-vega-elf-gcc.path}/bin/
 #d_tej_32.menu.toolsloc.manual.compiler.path=
 
 #Point to the file for ./variants/<variant>/pins_arduino.h
 d_tej_32.build.variant=D.TEJ.32
 
-d_tej_32.menu.clksrc.d_tej_32_100=100MHz
-d_tej_32.menu.clksrc.d_tej_32_100.build.f_cpu=100000000L
+d_tej_32.menu.clksrc.aries100=100MHz
+d_tej_32.menu.clksrc.aries100.build.f_cpu=100000000L
 
-d_tej_32.menu.clksrc.d_tej_32_75=75MHz
-d_tej_32.menu.clksrc.d_tej_32_75.build.f_cpu=75000000L
+d_tej_32.menu.clksrc.aries75=75MHz
+d_tej_32.menu.clksrc.aries75.build.f_cpu=75000000L
 
 d_tej_32.build.mcu=rv32im
 d_tej_32.build.vid.0=0x0403
-d_tej_32.build.pid.0=0x6015
-d_tej_32.build.vid.1=0x10C4
-d_tej_32.build.pid.1=0xEA60
+d_tej_32.build.vid.0=0x6015
 
 d_tej_32.bootloader.tool=arduflasher
 d_tej_32.bootloader.file=arduflasher/flasher_arduino.bin
@@ -38,8 +34,8 @@ d_tej_32.bootloader.file=arduflasher/flasher_arduino.bin
 #"The 'core' file directory for this board, in ./cores
 d_tej_32.build.core=arduino
 # This sets a define for use in the compiled code.
-d_tej_32.build.board=D.TEJ.32
-d_tej_32.build.boardenv=D.TEJ.32
+d_tej_32.build.board=d_tej_32
+d_tej_32.build.boardenv=ELagori
 d_tej_32.build.usb_product="ELagori"
 d_tej_32.build.sdata.size=4096
 
@@ -55,5 +51,3 @@ d_tej_32.menu.FlashMode.on=Enabled
 d_tej_32.menu.FlashMode.on.build.ldscript={compiler.sdk.path}/link1.lds
 
 #d_tej_32.build.ldscript={compiler.sdk.path}/link.lds
-
-
